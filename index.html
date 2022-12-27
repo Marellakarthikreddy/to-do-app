@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://kit.fontawesome.com/69f107dd8c.js" crossorigin="anonymous"></script>
+</head>
+<style type="text/css">
+		.listtype{
+		list-style:none ;
+	}
+	#color{
+		background-color: blue;
+		color: white;
+		padding: 1% 3% 1% 3%;
+
+	}
+	body{
+		background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpqcMDm81dpAr0s32FDmfujAFRhQlmbDtgHA&usqp=CAU);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-attachment: fixed;
+		background-size: 50rem;
+	}
+	#toDo{
+		background-color: red;
+		color: white;
+
+
+	}
+	#newdiv{
+		text-align: center;
+		margin: 20% 30% 20% 50%;
+		padding: 2% 3% 3% 2%;
+		border: 1px solid black;
+		background-color: whitesmoke;
+		border-radius: 2rem;
+	}
+	
+
+</style>
+<body>
+	
+	<script type="text/javascript">
+		function todo()
+		{
+			let newTodo=document.getElementById("toDo").value,todolist=[]
+			if(newTodo==="")
+			{
+				alert("enter a todo value")
+			}
+			else
+				{
+					add(newTodo)
+				}
+			/*todolist.push(newTodo)*/
+			console.log(todolist)
+			document.getElementById("toDo").value=""
+		}
+		function add(newValue){
+			ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li")
+			const d=new Date()
+			var h=d.getHours();
+			var m=d.getMinutes();
+			li.innerHTML=`
+			<span>${newValue} ${h}:${m}</span>
+			<i class="fa-solid fa-rectangle-xmark"></i>
+			`
+			li.classList.add("listtype")
+			ul.appendChild(li)
+		}
+	</script>
+	<div id="newdiv">
+	<input  id="toDo" type="text" placeholder="enter text">
+	<ul>
+		
+	</ul>
+	<button id="color" onclick="todo()">click</button>
+	</div>
+	
+</body>
+</html>
